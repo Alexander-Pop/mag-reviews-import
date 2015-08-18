@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Katai_Ekomi>
+            <version>1.1.0</version>
+        </Katai_Ekomi>
+    </modules>
+
+    <global>
+        <helpers>
+            <katai_ekomi>
+                <class>Katai_Ekomi_Helper</class>
+            </katai_ekomi>
+        </helpers>
+        <blocks>
+            <katai_ekomi>
+                <class>Katai_Ekomi_Block</class>
+            </katai_ekomi>
+        </blocks>
+        <models>
+            <katai_ekomi>
+                <class>Katai_Ekomi_Model</class>
+                <resourceModel>katai_ekomi_resource</resourceModel>
+            </katai_ekomi>
+            <katai_ekomi_resource>
+                <class>Katai_Ekomi_Model_Resource</class>
+            </katai_ekomi_resource>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <katai_ekomi>
+                    <file>katai/ekomi.xml</file>
+                </katai_ekomi>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <Katai_Ekomi>
+                    <files>
+                        <default>Katai_Ekomi.csv</default>
+                    </files>
+                </Katai_Ekomi>
+            </modules>
+        </translate>
+    </frontend>
+
+    <default>
+        <katai_ekomi>
+            <general>
+                <is_enabled>1</is_enabled>
+                <is_logging_enabled>1</is_logging_enabled>
+                <interface_id>50138</interface_id>
+                <interface_pass>9a15bc2bc488bb1800ecb67cb</interface_pass>
+                <interface_range>all</interface_range>
+                <interface_scheme>https</interface_scheme>
+            </general>
+            <rating>
+                <default_nickname>Anonyme</default_nickname>
+                <default_title><![CDATA[a:6:{s:18:"_1439566913658_658";a:2:{s:9:"rating_id";s:1:"0";s:11:"title_label";s:32:"No Rating - Default Entry - Keep";}s:18:"_1439566928354_354";a:2:{s:9:"rating_id";s:1:"1";s:11:"title_label";s:14:"Insatisfaisant";}s:18:"_1439566930337_337";a:2:{s:9:"rating_id";s:1:"2";s:11:"title_label";s:5:"Moyen";}s:18:"_1439566931985_985";a:2:{s:9:"rating_id";s:1:"3";s:11:"title_label";s:4:"Bien";}s:18:"_1439566934553_553";a:2:{s:9:"rating_id";s:1:"4";s:11:"title_label";s:10:"Très bien";}s:18:"_1439566936473_473";a:2:{s:9:"rating_id";s:1:"5";s:11:"title_label";s:9:"Excellent";}}]]></default_title>
+                <apply_rating>4</apply_rating>
+            </rating>
+            <advanced>
+                <serialised_map_timestamp>abgegeben</serialised_map_timestamp>
+                <serialised_map_client_id>shop_kunden_id</serialised_map_client_id>
+                <serialised_map_product_id>produkt_id</serialised_map_product_id>
+                <serialised_map_rating>bewertung</serialised_map_rating>
+                <serialised_map_review>meinung</serialised_map_review>
+            </advanced>
+        </katai_ekomi>
+    </default>
+
+    <crontab>
+        <jobs>
+            <katai_ekomi_review_default>
+                <schedule>
+                    <cron_expr>30 5 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>katai_ekomi/cron_ekomi_review::run</model>
+                </run>
+                <store_code>defaut</store_code>
+            </katai_ekomi_review_default>
+        </jobs>
+    </crontab>
+</config>

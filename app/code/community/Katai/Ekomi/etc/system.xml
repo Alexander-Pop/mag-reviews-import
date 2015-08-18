@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <katai translate="label" module="katai_ekomi">
+            <label>Katai Extensions</label>
+            <sort_order>9000</sort_order>
+        </katai>
+    </tabs>
+
+    <sections>
+        <katai_ekomi>
+            <label>Ekomi Review Integration</label>
+            <tab>katai</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>460</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="katai_ekomi">
+                    <label>Ekomi General API Access</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <is_enabled translate="label comment" module="katai_ekomi">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable Akomi Product Review integration.]]></comment>
+                        </is_enabled>
+                        <interface_id translate="label comment" module="katai_ekomi">
+                            <label>Interface ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </interface_id>
+                        <interface_pass translate="label comment" module="katai_ekomi">
+                            <label>Interface Pass</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </interface_pass>
+                        <interface_range translate="label comment" module="katai_ekomi">
+                            <label>Interface Range</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>katai_ekomi/system_config_source_ekomi_range</source_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </interface_range>
+                        <interface_scheme translate="label comment" module="katai_ekomi">
+                            <label>Interface Scheme</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>katai_ekomi/system_config_source_ekomi_scheme</source_model>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </interface_scheme>
+                        <is_logging_enabled translate="label comment" module="katai_ekomi">
+                            <label>Enable Logging</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Script output will be logged under ./var/log/<cronjob_name>.log]]></comment>
+                        </is_logging_enabled>
+                    </fields>
+                </general>
+                <rating translate="label" module="katai_ekomi">
+                    <label>Ekomi Rating</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <reimport_all translate="label comment" module="katai_ekomi">
+                            <label>REIMPORT ALL REVIEWS</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<span style="color: red; font-weight: bolder;">Re-import all reviews from EKOMI, this will create duplicates.</span> This setting will automatically be switched off once it has been ran.]]></comment>
+                        </reimport_all>
+                        <default_nickname translate="label comment" module="katai_ekomi">
+                            <label>Default Nickname</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Comments from Ekomi do not have a nickname, please enter the Nickname what needs to appear on the reviews.]]></comment>
+                        </default_nickname>
+                        <default_title translate="label comment" module="katai_ekomi">
+                            <label>Default Titles</label>
+                            <frontend_model>katai_ekomi/system_config_source_ekomi_title</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_title>
+                        <apply_rating translate="label comment" module="katai_ekomi">
+                            <label>Default Rating Code</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>katai_ekomi/system_config_source_ekomi_rating</source_model>
+                            <sort_order>800</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apply_rating>
+                    </fields>
+                </rating>
+                <advanced>
+                    <label>Ekomi Advanced (Beta)</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>0</expanded>
+                    <fields>
+                        <data_parser translate="label comment" module="katai_ekomi">
+                            <label>Default data parser</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>katai_ekomi/system_config_source_ekomi_data_parser</source_model>
+                            <sort_order>900</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </data_parser>
+                        <serialised_map_timestamp>
+                            <label>Serialized Map: timestamp field</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>910</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serialised_map_timestamp>
+                        <serialised_map_client_id>
+                            <label>Serialized Map: Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>911</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serialised_map_client_id>
+                        <serialised_map_product_id>
+                            <label>Serialized Map: Product Id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>912</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serialised_map_product_id>
+                        <serialised_map_rating>
+                            <label>Serialized Map: Rating</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>913</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serialised_map_rating>
+                        <serialised_map_review>
+                            <label>Serialized Map: Review</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>913</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serialised_map_review>
+                    </fields>
+                </advanced>
+            </groups>
+        </katai_ekomi>
+    </sections>
+</config>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <katai translate="title" module="theam_base">
+                        <title>Katai</title>
+                        <sort_order>30</sort_order>
+                        <children>
+
+                        </children>
+                    </katai>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <katai_ekomi translate="title" module="theam_base">
+                                        <title>Katai Ekomi</title>
+                                    </katai_ekomi>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
