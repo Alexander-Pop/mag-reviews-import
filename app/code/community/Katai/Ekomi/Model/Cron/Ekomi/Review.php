@@ -96,7 +96,7 @@ class katai_ekomi_Model_Cron_Ekomi_Review extends Varien_Object
 
         // Aggregate Ratings by product ID
         $importAll = $this->getHelper()->importAllReviews($this->_store->getId());
-        $this->getHelper()->disabledImportAllReviews(); // a one-of setting!
+        $this->getHelper()->disabledImportAllReviews($this->_store->getId()); // a one-of setting!
 
         /// (Messy) default data
         $yesterday = time() - (1 * 24 * 60 * 60);
