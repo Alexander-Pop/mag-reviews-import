@@ -17,7 +17,7 @@ class Katai_Ekomi_Model_System_Config_Source_Ekomi_Sales_Rule extends Varien_Obj
 
         $data = [];
         foreach ( $rules as $rule ) {
-            $data[] = ['value' => $rule->getId(), 'label' => Mage::helper('katai_ekomi')->__($rule->getName())];
+            $data[] = ['value' => $rule->getId(), 'label' => $rule->getId() . ' - ' . $rule->getName()];
         }
 
         return $data;

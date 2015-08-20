@@ -70,8 +70,21 @@
                 <serialised_map_rating>bewertung</serialised_map_rating>
                 <serialised_map_review>meinung</serialised_map_review>
             </advanced>
+            <coupon>
+                <template>katai_ekomi_coupon_template</template>
+            </coupon>
         </katai_ekomi>
     </default>
+
+    <template>
+        <email>
+            <katai_ekomi_coupon_template translate="label" module="katai_ekomi">
+                <label>Voucher Email</label>
+                <file>katai/ekomi/coupon/voucher.html</file>
+                <type>html</type>
+            </katai_ekomi_coupon_template>
+        </email>
+    </template>
 
     <crontab>
         <jobs>
