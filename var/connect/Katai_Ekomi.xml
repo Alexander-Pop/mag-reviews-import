@@ -1,0 +1,95 @@
+<_>
+   <form_key>dxtbjcb2535H4kLU</form_key>
+   <name>katai_ekomi</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>Update your Magento Products with Ekomi&apos;s provided  product reviwes</summary>
+   <description>Update your Magento Products with Ekomi&apos;s provided  product reviwes</description>
+   <license>Open Software License</license>
+   <license_uri>http://opensource.org/licenses/osl-3.0.php</license_uri>
+   <version>1.0.1</version>
+   <stability>stable</stability>
+   <notes>katai_ekomi</notes>
+   <authors>
+      <name>
+         <name>Mitch Vanderlinden</name>
+      </name>
+      <user>
+         <user>mitchvdl</user>
+      </user>
+      <email>
+         <email>magento@mitchvdl.be</email>
+      </email>
+   </authors>
+   <depends_php_min>5.3.1</depends_php_min>
+   <depends_php_max>5.6.1</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+            <name>Mage_Review</name>
+         </name>
+         <channel>
+            <channel/>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+            <min/>
+         </min>
+         <max>
+            <max/>
+            <max/>
+         </max>
+         <files>
+            <files>      </files>
+            <files>      </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>mageetc</target>
+         <target>magedesign</target>
+      </target>
+      <path>
+         <path/>
+         <path>Katai</path>
+         <path>modules/Katai_Ekomi.xml</path>
+         <path>/frontend/base/default/layout/katai/ekomi.xml</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>
