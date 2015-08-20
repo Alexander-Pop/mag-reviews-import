@@ -10,6 +10,8 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
     const XPATH_GENERAL_IS_ENABLED = 'katai_ekomi/general/is_enabled';
+    const XPATH_RATING_IS_ENABLED = 'katai_ekomi/rating/is_enabled';
+
     const XPATH_GENERAL_IS_LOGGING_ENABLED = 'katai_ekomi/general/is_logging_enabled';
     const XPATH_GENERAL_INTERFACE_SCHEME = 'katai_ekomi/general/interface_scheme';
     const XPATH_GENERAL_INTERFACE_ID = 'katai_ekomi/general/interface_id';
@@ -38,12 +40,24 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     protected $ratingTitles = [];
 
     /**
+     * Is enabled is no longer a valid method, please refer to the correct configuration group
+     * @deprecated
      * @param int $storeId
      * @return bool
      */
     public function isEnabled($storeId = 0)
     {
-        return Mage::getStoreConfigFlag(self::XPATH_GENERAL_IS_ENABLED, $storeId);
+//        return Mage::getStoreConfigFlag(self::XPATH_GENERAL_IS_ENABLED, $storeId);
+        return true;
+    }
+
+    /**
+     * @param int $storeId
+     * @return bool
+     */
+    public function isProductReviewEnabled($storeId = 0)
+    {
+        return Mage::getStoreConfigFlag(self::XPATH_RATING_IS_ENABLED, $storeId);
     }
 
     /**
