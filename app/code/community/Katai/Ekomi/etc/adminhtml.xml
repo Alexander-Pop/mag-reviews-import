@@ -4,7 +4,7 @@
         <resources>
             <admin>
                 <children>
-                    <katai translate="title" module="theam_base">
+                    <katai translate="title" module="katai_ekomi">
                         <title>Katai</title>
                         <sort_order>30</sort_order>
                         <children>
@@ -15,7 +15,7 @@
                         <children>
                             <config>
                                 <children>
-                                    <katai_ekomi translate="title" module="theam_base">
+                                    <katai_ekomi translate="title" module="katai_ekomi">
                                         <title>Katai Ekomi</title>
                                     </katai_ekomi>
                                 </children>
