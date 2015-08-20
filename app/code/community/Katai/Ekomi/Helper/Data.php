@@ -147,6 +147,7 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * @deprecated
      * @param bool|false $singleton
      * @param int $storeId
      * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
@@ -154,6 +155,38 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     public function getAdvancedDataParser($singleton = false, $storeId = 0)
     {
         $class = 'katai_ekomi/review_data_parser_' . $this->getAdvancedDataParserType($storeId);
+
+        if ( $singleton ) {
+            return Mage::getSingleton($class)->setStoreId($storeId);
+        }
+
+        return Mage::getModel($class)->setStoreId($storeId);
+    }
+
+    /**
+     * @param bool|false $singleton
+     * @param int $storeId
+     * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
+     */
+    public function getReviewDataParser($singleton = false, $storeId = 0)
+    {
+        $class = 'katai_ekomi/review_data_parser_' . $this->getAdvancedDataParserType($storeId);
+
+        if ( $singleton ) {
+            return Mage::getSingleton($class)->setStoreId($storeId);
+        }
+
+        return Mage::getModel($class)->setStoreId($storeId);
+    }
+
+    /**
+     * @param bool|false $singleton
+     * @param int $storeId
+     * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
+     */
+    public function getCouponDataParser($singleton = false, $storeId = 0)
+    {
+        $class = 'katai_ekomi/coupon_data_parser_csv';
 
         if ( $singleton ) {
             return Mage::getSingleton($class)->setStoreId($storeId);
