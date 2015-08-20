@@ -26,6 +26,8 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     const XPATH_ADVANCED_DATA_PARSER = 'katai_ekomi/advanced/data_parser';
     const XPATH_ADVANCED_SERIALIZED_MAP= 'katai_ekomi/advanced/serialised_map_%s';
 
+    const HOST_PRODUCT_FEEDBACK = 'api.ekomi.de/get_productfeedback.php';
+    const HOST_FEEDBACK = 'api.ekomi.de/get_feedback.php';
 
     /**
      * 'static' lookup cache
@@ -260,4 +262,21 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->ratingOptions[$key];
     }
 
+    /**
+     * Return host URL for the product feedback
+     * @return string
+     */
+    public function getProductFeedbackHost()
+    {
+        return self::HOST_PRODUCT_FEEDBACK;
+    }
+
+    /**
+     * Retrn host URL for the feedback
+     * @return string
+     */
+    public function getFeedbackHost()
+    {
+        return self::HOST_FEEDBACK;
+    }
 }
