@@ -26,6 +26,15 @@
                 <class>Katai_Ekomi_Model_Resource</class>
             </katai_ekomi_resource>
         </models>
+        <template>
+            <email>
+                <katai_ekomi_coupon_template translate="label" module="katai_ekomi">
+                    <label>Voucher Email</label>
+                    <file>katai/ekomi/coupon/voucher.html</file>
+                    <type>html</type>
+                </katai_ekomi_coupon_template>
+            </email>
+        </template>
     </global>
 
     <frontend>
@@ -76,15 +85,6 @@
         </katai_ekomi>
     </default>
 
-    <template>
-        <email>
-            <katai_ekomi_coupon_template translate="label" module="katai_ekomi">
-                <label>Voucher Email</label>
-                <file>katai/ekomi/coupon/voucher.html</file>
-                <type>html</type>
-            </katai_ekomi_coupon_template>
-        </email>
-    </template>
 
     <crontab>
         <jobs>
