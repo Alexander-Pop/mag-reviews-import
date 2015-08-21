@@ -1,0 +1,3 @@
+app/code/community/Katai/Ekomi                          app/code/community/Katai/Ekomi
+app/locale/en_GB/template/katai/ekomi                   app/locale/en_GB/template/katai/ekomi
+app/etc/modules/Katai_Ekomi.xml                         app/etc/modules/Katai_Ekomi.xml
