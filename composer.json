@@ -13,14 +13,7 @@
     }
   ],
   "require" : {
-    "magento-hackathon/magento-composer-installer": "*",
-    "composer/composer": "~1.0.0@alpha"
-  },
-
-  "extra": {
-    "map": [
-      ["app/code/community/Katai/Ekomi","app/code/community/Katai/Ekomi"],
-      ["app/etc/modules/Katai_Ekomi.xml","app/etc/modules/Katai_Ekomi.xml"]
-    ]
+    "php": ">=5.3",
+    "magento-hackathon/magento-composer-installer": "*"
   }
 }

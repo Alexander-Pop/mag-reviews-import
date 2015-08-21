@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Katai_Ekomi>
-            <version>1.1.0</version>
+            <version>1.1.0.0</version>
         </Katai_Ekomi>
     </modules>
 
@@ -26,6 +26,15 @@
                 <class>Katai_Ekomi_Model_Resource</class>
             </katai_ekomi_resource>
         </models>
+        <template>
+            <email>
+                <katai_ekomi_coupon_template translate="label" module="katai_ekomi">
+                    <label>Voucher Email</label>
+                    <file>katai/ekomi/coupon/voucher.html</file>
+                    <type>html</type>
+                </katai_ekomi_coupon_template>
+            </email>
+        </template>
     </global>
 
     <frontend>
@@ -70,8 +79,12 @@
                 <serialised_map_rating>bewertung</serialised_map_rating>
                 <serialised_map_review>meinung</serialised_map_review>
             </advanced>
+            <coupon>
+                <template>katai_ekomi_coupon_template</template>
+            </coupon>
         </katai_ekomi>
     </default>
+
 
     <crontab>
         <jobs>
@@ -82,8 +95,17 @@
                 <run>
                     <model>katai_ekomi/cron_ekomi_review::run</model>
                 </run>
-                <store_code>defaut</store_code>
+                <store_code>default</store_code>
             </katai_ekomi_review_default>
+            <katai_ekomi_voucher_default>
+                <schedule>
+                    <cron_expr>30 6 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>katai_ekomi/cron_ekomi_coupon::run</model>
+                </run>
+                <store_code>default</store_code>
+            </katai_ekomi_voucher_default>
         </jobs>
     </crontab>
 </config>

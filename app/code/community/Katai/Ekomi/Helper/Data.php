@@ -10,6 +10,9 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
     const XPATH_GENERAL_IS_ENABLED = 'katai_ekomi/general/is_enabled';
+    const XPATH_RATING_IS_ENABLED = 'katai_ekomi/rating/is_enabled';
+
+
     const XPATH_GENERAL_IS_LOGGING_ENABLED = 'katai_ekomi/general/is_logging_enabled';
     const XPATH_GENERAL_INTERFACE_SCHEME = 'katai_ekomi/general/interface_scheme';
     const XPATH_GENERAL_INTERFACE_ID = 'katai_ekomi/general/interface_id';
@@ -24,6 +27,8 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     const XPATH_ADVANCED_DATA_PARSER = 'katai_ekomi/advanced/data_parser';
     const XPATH_ADVANCED_SERIALIZED_MAP= 'katai_ekomi/advanced/serialised_map_%s';
 
+    const HOST_PRODUCT_FEEDBACK = 'api.ekomi.de/get_productfeedback.php';
+    const HOST_FEEDBACK = 'api.ekomi.de/get_feedback.php';
 
     /**
      * 'static' lookup cache
@@ -38,12 +43,33 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     protected $ratingTitles = [];
 
     /**
+     * Is enabled is no longer a valid method, please refer to the correct configuration group
+     * @deprecated
      * @param int $storeId
      * @return bool
      */
     public function isEnabled($storeId = 0)
     {
-        return Mage::getStoreConfigFlag(self::XPATH_GENERAL_IS_ENABLED, $storeId);
+//        return Mage::getStoreConfigFlag(self::XPATH_GENERAL_IS_ENABLED, $storeId);
+        return true;
+    }
+
+    /**
+     * @param int $storeId
+     * @return bool
+     */
+    public function isProductReviewEnabled($storeId = 0)
+    {
+        return Mage::getStoreConfigFlag(self::XPATH_RATING_IS_ENABLED, $storeId);
+    }
+
+    /**
+     * @param int $storeId
+     * @return bool
+     */
+    public function isCouponEnabled($storeId = 0)
+    {
+        return Mage::getStoreConfigFlag(self::XPATH_COUPON_IS_ENABLED, $storeId);
     }
 
     /**
@@ -131,11 +157,28 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * @deprecated
      * @param bool|false $singleton
      * @param int $storeId
      * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
      */
     public function getAdvancedDataParser($singleton = false, $storeId = 0)
+    {
+        $class = 'katai_ekomi/review_data_parser_' . $this->getAdvancedDataParserType($storeId);
+
+        if ( $singleton ) {
+            return Mage::getSingleton($class)->setStoreId($storeId);
+        }
+
+        return Mage::getModel($class)->setStoreId($storeId);
+    }
+
+    /**
+     * @param bool|false $singleton
+     * @param int $storeId
+     * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
+     */
+    public function getReviewDataParser($singleton = false, $storeId = 0)
     {
         $class = 'katai_ekomi/review_data_parser_' . $this->getAdvancedDataParserType($storeId);
 
@@ -246,4 +289,21 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->ratingOptions[$key];
     }
 
+    /**
+     * Return host URL for the product feedback
+     * @return string
+     */
+    public function getProductFeedbackHost()
+    {
+        return self::HOST_PRODUCT_FEEDBACK;
+    }
+
+    /**
+     * Retrn host URL for the feedback
+     * @return string
+     */
+    public function getFeedbackHost()
+    {
+        return self::HOST_FEEDBACK;
+    }
 }

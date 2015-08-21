@@ -77,7 +77,7 @@ class katai_ekomi_Model_Cron_Ekomi_Review extends Varien_Object
      */
     public function canRun()
     {
-        return $this->_store != null && $this->getHelper()->isEnabled($this->_store->getId());
+        return $this->_store != null && $this->getHelper()->isProductReviewEnabled($this->_store->getId());
     }
 
     /**
@@ -92,7 +92,7 @@ class katai_ekomi_Model_Cron_Ekomi_Review extends Varien_Object
             return $this;
         }
 
-        $ratingsData = $this->getHelper()->getAdvancedDataParser(true, $this->_store->getId())->fetch();
+        $ratingsData = $this->getHelper()->getReviewDataParser(true, $this->_store->getId())->fetch();
 
         // Aggregate Ratings by product ID
         $importAll = $this->getHelper()->importAllReviews($this->_store->getId());
