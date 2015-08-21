@@ -97,6 +97,15 @@
                 </run>
                 <store_code>defaut</store_code>
             </katai_ekomi_review_default>
+            <katai_ekomi_voucher_default>
+                <schedule>
+                    <cron_expr>30 6 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>katai_ekomi/cron_ekomi_coupon::run</model>
+                </run>
+                <store_code>defaut</store_code>
+            </katai_ekomi_voucher_default>
         </jobs>
     </crontab>
 </config>
