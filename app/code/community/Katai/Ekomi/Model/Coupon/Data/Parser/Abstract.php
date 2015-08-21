@@ -35,6 +35,6 @@ abstract class Katai_Ekomi_Model_Coupon_Data_Parser_Abstract extends Katai_Ekomi
      */
     public function getHost()
     {
-        return Mage::helper('katai_ekomi')->getProductFeedbackHost();
+        return Mage::helper('katai_ekomi')->getFeedbackHost();
     }
 }
