@@ -190,22 +190,6 @@ class Katai_Ekomi_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param bool|false $singleton
-     * @param int $storeId
-     * @return Katai_Ekomi_Model_Review_Data_Parser_Abstract
-     */
-    public function getCouponDataParser($singleton = false, $storeId = 0)
-    {
-        $class = 'katai_ekomi/coupon_data_parser_csv';
-
-        if ( $singleton ) {
-            return Mage::getSingleton($class)->setStoreId($storeId);
-        }
-
-        return Mage::getModel($class)->setStoreId($storeId);
-    }
-
-    /**
      * @param $key
      * @param int $storeId
      * @return string

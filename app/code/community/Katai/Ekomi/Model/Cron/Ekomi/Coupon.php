@@ -85,7 +85,7 @@ class katai_ekomi_Model_Cron_Ekomi_Coupon extends Varien_Object
         $appEmulation = Mage::getSingleton('core/app_emulation');
         $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($this->_store->getId());
 
-        foreach (array_chunk($orders, 100) as $_idx => $orderChunk) {
+        foreach (array_chunk($orders, 100, true) as $_idx => $orderChunk) {
             $this->_processCoupons($orderChunk, $_idx);
         }
 
@@ -103,8 +103,9 @@ class katai_ekomi_Model_Cron_Ekomi_Coupon extends Varien_Object
         /** @var Mage_Sales_Model_Resource_Order_Collection $products */
         $orders = Mage::getModel('sales/order')
             ->getCollection()
-            ->addFieldToFilter('increment_id', array_keys($orderData));
-        $this->log((String)$products->getSelect()->assemble(), Zend_Log::DEBUG);
+            ->addFieldToFilter('increment_id', array_keys($orderData))
+        ;
+        $this->log((String)$orders->getSelect()->assemble(), Zend_Log::DEBUG);
 
 
         // Get the destination email addresses to send copies to
