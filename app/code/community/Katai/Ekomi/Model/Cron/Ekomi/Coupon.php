@@ -41,7 +41,7 @@ class katai_ekomi_Model_Cron_Ekomi_Coupon extends Varien_Object
         $this->_store = Mage::app()->getStore($storeCode);
         $this->_schedule = $schedule;
 
-        $this->_enableLogging = $this->getHelper()->isLoggingEnabled($this->_store->getId());
+        $this->_enableLogging = Mage::helper('katai_ekomi')->isLoggingEnabled($this->_store->getId());
 
         return $this;
     }
