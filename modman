@@ -1,3 +1,4 @@
 app/code/community/Katai/Ekomi                          app/code/community/Katai/Ekomi
 app/locale/en_US/template/email/katai/ekomi             app/locale/en_US/template/email/katai/ekomi
+app/design/frontend/base/default/layout/katai/ekomi.xml app/design/frontend/base/default/layout/katai/ekomi.xml
 app/etc/modules/Katai_Ekomi.xml                         app/etc/modules/Katai_Ekomi.xml
